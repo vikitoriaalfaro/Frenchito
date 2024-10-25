@@ -29,7 +29,7 @@
                 session_start();
                 $_SESSION["usuario"] = $fila["nombre"]; 
                 //ejemplo para poner en el index    
-                header("Location: /nosotros/Nosotros.php");
+                header("Location: /Nosotros.php");
 
             }
             else{
