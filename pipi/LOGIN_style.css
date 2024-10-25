@@ -7,6 +7,17 @@ body{
 main{
     height: 100%;
 }
+.titulo{
+  text-decoration: none;
+  color: black;
+   font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+  }    
+
+
 header{
 height:80px;
 position: fixed;
@@ -31,31 +42,16 @@ li{
     padding-right: 45px;
     line-height:100px
     }
-    a{
-        text-decoration: none;
-        color: black;
-         font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 110%;
-        }
-    .login{
-        color: rgb(65, 116, 121);
-        padding-left: 10px;
-        font-weight: 700;
-        }
-          
-       b {
-            color: rgb(0, 0, 0);
-             font-family: "Josefin Sans", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 500;
-                font-style: normal;
-                font-size: 110%;
-            align-items:baseline;
-            }
-            
+
+.pregunta{
+  color: rgb(57, 71, 88);
+  font-family: "Josefin Sans", sans-serif;
+     font-optical-sizing: auto;
+     font-weight: 500;
+     font-style: normal;
+     font-size: 80%;
+ align-items:baseline;
+}
 .container{
     display: flex;
     justify-content: center;
@@ -96,7 +92,7 @@ li{
     display: block;
     text-align: center;
     font-weight: 600;
-    font-size: 11px;
+ 
     margin: auto;
   }
   
@@ -134,9 +130,11 @@ li{
   }
   
   .input_label {
-    font-size: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 12px;
     color: #5e5f64;
     font-weight: 600;
+    padding-top: 5%;
   }
   
   .input_field {
@@ -145,8 +143,9 @@ li{
     padding: 0 0 0 16px;
     border-radius: 9px;
     outline: none;
+    font-family: "Josefin Sans", sans-serif;
     background-color: #F2F2F2;
-    border: 1px solid #e5e5e500;
+    border: 1px solid #000000a4;
     transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
   }
   
@@ -159,21 +158,21 @@ li{
   .purchase--btn {
     margin-top:5%;
     height: 55px;
-    width: 30%;
-    background: #F2F2F2;
+    width: 100%;
+    background: #314f5791;
     border-radius: 11px;
     border: 0;
     outline: none;
-    color: #ffffff;
+    color: #000000f5;
     font-size: 13px;
     font-weight: 700;
-    background: linear-gradient(180deg, #ffffff6b 0%, rgba(255, 255, 255, 0.486) 50%, #ffffff6b 100%);/*color d fondo*/
-    box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
+    background: linear-gradient(180deg, #72a3b6e0 0%, rgba(129, 169, 228, 0.486) 50%, #428cbe6b 100%);/*color d fondo*/
+    border: 1px solid #0f6299a4;
     transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
   }
   
   .purchase--btn:hover {
-    box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
+    box-shadow: 0px 0px 0px 2px #000000, 0px 0px 0px 4px #000000d5;
   }
   
 
@@ -182,14 +181,15 @@ li{
     -webkit-appearance: none;
     margin: 0;
   }
-  
+ 
+
   .input_field[type=number] {
     -moz-appearance: textfield;
   }
   
-    footer{
+    footer{    
         width:100%;
-        
+        padding-top: 15%;
         bottom: 0px;
         right:0px;
         left:0px;
@@ -202,13 +202,4 @@ li{
             font-size: 110%;
     }
      
-    p{
-        text-decoration: none;
-        color: black;
-         font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 110%;
-        }    
 
