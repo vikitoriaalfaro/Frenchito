@@ -100,6 +100,8 @@ li{
 	grid-template-columns: repeat(3, 1fr);
 	align-items: center;
 	gap: 3rem;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .card-category {
@@ -121,6 +123,7 @@ li{
 	background-repeat: no-repeat;
 }
 
+
 .category-brunch {
 	background-image: linear-gradient(#00000080, #00000080),
 	url('https://i.pinimg.com/736x/a0/94/0d/a0940dbc6e1116c027950d03b0467189.jpg');
@@ -136,6 +139,11 @@ li{
 	background-position: center;
 	background-repeat: no-repeat;
 }
+.category-desayunotexto,.category-almuerzotexto,.category-brunchtexto {
+	background-color: #7e98ad;
+	
+}
+
 
 .card-category p a{
 	font-size: 2.5rem;
@@ -148,7 +156,7 @@ li{
 
 .card-category span {
 	font-size: 1.6rem;
-	color: #fff;
+	color: #306ac2;
 	cursor: pointer;
 	padding-top: 5%;
 }
@@ -165,6 +173,7 @@ li{
 	flex-direction: column;
 	gap: 2rem;
 	margin-bottom: 3rem;
+	
 }
 
 .container-options {
@@ -260,11 +269,11 @@ li{
 
 .button-group span i {
 	font-size: 1.5rem;
-	color: var(--primary-color);
+	color: #680505;
 }
 
 .button-group span:hover i {
-	color: #fff;
+	color: #b83333;
 }
 
 .card-product:hover .button-group {
