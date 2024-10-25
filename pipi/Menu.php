@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
   <head>
@@ -13,7 +16,7 @@
 
       
     <link rel="stylesheet" href="Menu.css" />
-    <link rel="icon" type="image/png" href="f.png">
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/png-vector/20220723/ourmid/pngtree-fresh-croissant-icon-cartoon-style-with-shadow-free-vector-and-png-png-image_6034269.png">
   </head>
   <body>
     
@@ -23,11 +26,20 @@
         </div>
         <nav>
           <ul>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="Menu.html">Menú</a></li>
-            <li><a href="Locales.html">Locales</a></li>
-            <li><a href="Tienda.html">Tienda</a></li>
-            <li><a class="login" href="Login.html">Crear cuenta</a></li>
+            <li><a href="Nosotros.php">Nosotros</a></li>
+            <li><a href="Menu.php">Menú</a></li>
+            <li><a href="Locales.php">Locales</a></li>
+            <li><a href="Tienda.php">Tienda</a></li>
+            <li>
+              <?php
+              if(isset($_SESSION["usuario"])){
+                    echo "<a class='login'>".$_SESSION['usuario']."</a>";
+                }
+                else{
+                    echo "<a class='login' href='Login.html'>Crear cuenta</a>";
+                } ?>         
+                </li>
+
           </ul>
         </nav>
       </header>
@@ -51,5 +63,7 @@
     </footer>
   </body>
 </html>
+
+
 
 
