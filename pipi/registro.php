@@ -21,7 +21,7 @@
         $resultado=mysqli_query($conexion, $query);
         session_start();
         $_SESSION["usuario"] = $nombre; 
-        header("Location: /nosotros/Nosotros.php");
+        header("Location:/Nosotros.php");
 
 
         /*
