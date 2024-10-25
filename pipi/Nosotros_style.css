@@ -60,7 +60,7 @@ li{
         width:100%;
         height: 80vh;
         top:100px;
-        background-image: url("brunch .jpg");
+        background-image: url("Imagenes/brunch.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     
@@ -191,5 +191,6 @@ li{
 .fade-out-complete + .contenedor {
     display: block;
 }
+
 
 
