@@ -22,7 +22,7 @@ session_start();
  
         <header>
           <div class="logo">
-            <img src="logo.png" style="width:135px;height: 80px;">
+            <img src="Imagenes/logo.png" style="width:135px;height: 80px;">
           </div>
           <nav>
             <ul>
@@ -37,7 +37,7 @@ session_start();
                     echo "<a class='login'>".$_SESSION['usuario']."</a>";
                 }
                 else{
-                    echo "<a class='login' href='Login.html'>Crear cuenta</a>";
+                    echo "<a class='login' href='Registro.html'>Crear cuenta</a>";
                 } ?>         
                 </li>
             </ul>
