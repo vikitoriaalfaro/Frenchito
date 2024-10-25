@@ -13,7 +13,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
       
     <link rel="stylesheet" href="Nosotros_style.css" />
-    <link rel="icon" type="image/png" href="f.png">
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/png-vector/20220723/ourmid/pngtree-fresh-croissant-icon-cartoon-style-with-shadow-free-vector-and-png-png-image_6034269.png">
   </head>
   <body>
     <div class="logo-contenedor">
@@ -28,16 +28,16 @@ session_start();
           <ul>
          
             <li><a href="Nosotros.php">Nosotros</a></li>
-            <li><a href="../Menu.html">Menú</a></li>
-            <li><a href="../locales/Locales2.html">Locales</a></li>
-            <li><a href="Tienda.html">Tienda</a></li>
+            <li><a href="Menu.php">Menú</a></li>
+            <li><a href="Locales.php">Locales</a></li>
+            <li><a href="Tienda.php">Tienda</a></li>
             <li>
               <?php
               if(isset($_SESSION["usuario"])){
-                    echo "<a>".$_SESSION['usuario']."</a>";
+                    echo "<a class='login'>".$_SESSION['usuario']."</a>";
                 }
                 else{
-                    echo "<a class='login' href='../Login.html'>Crear cuenta</a>";
+                    echo "<a class='login' href='Login.html'>Crear cuenta</a>";
                 } ?>         
                 </li>
 
@@ -84,5 +84,6 @@ session_start();
 
 
 </html>
+
 
 
