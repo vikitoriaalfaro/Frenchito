@@ -50,26 +50,64 @@ session_start();
     <div class="title"> ¿Quiénes somos?</div>
     <div class="texto">En Frenchí, creemos en el poder de las pequeñas cosas y en el valor de cada instante compartido. En el corazón de nuestra comunidad, nos enorgullece ofrecerte 
       un rincón acogedor donde la tradición y el cariño se mezclan en cada taza de café. Nuestra cafetería clásica y familiar es el lugar perfecto para disfrutar de momentos especiales con tus seres queridos, rodeado de un ambiente cálido y amigable. </div>
-      <div id="div_centrar">
-        <div id="div_grid">
-          <div class="container">
-            <img class="o" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfIrJGA4C97TmFKikJITFZKPVjvRYQB4routjwPLAvsLrH-FG-Rc0KzSU7EdrrUCV-ZUtCS6ACxC79oirNVKWc3jEbtMA6jJBtBiA38V3pg9qI1QtSPoVnVYqQVji9qB3KoXwvprpC_Nvq/s1600/IMG_9563.JPG">
-            <img class="o" src="Deco.jpg">
-            <img class="o" src="cafetera.jpeg">
-            <img class="o" src="https://i.pinimg.com/564x/c5/30/d0/c530d0b5fca3a5f6da7792aa1822bd42.jpg">
-            <img class="o" src="https://plus.unsplash.com/premium_photo-1674327105076-36c4419864cf?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWVzdGhldGljJTIwY29mZmVlfGVufDB8fDB8fHww">
-             
-            <img class="o" src="descargaaa.jpeg">
-           
-            <img class="o" src="muffins.jpeg">
-            <img class="o" src="https://i.pinimg.com/736x/d9/de/5e/d9de5eec954ba707941e62f3c97572d5.jpg">
-         
-      </div>
+      
+      <div class="container">
 
-
-      </div>
-         
+        <div class="slide">
+    
+            
+            <div class="item" style="background-image: url(https://www.hotforfoodblog.com/wp-content/uploads/2018/06/vegannutellacrepe_hotforfood_filtered3.jpg);">
+                <div class="content">
+                    <div class="name">Crepes Dulces</div>
+                    <div class="des">Finas crepes rellenas de futas, chocolate o crema y dulce de leche.</div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://dwellbymichelle.com/wp-content/uploads/2021/08/DWELL_-_Starbucks_Caramel_Latte_Recipe.jpg);">
+                <div class="content">
+                    <div class="name">Frappé de Café</div>
+                    <div class="des"></div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://www.budgetbytes.com/wp-content/uploads/2024/04/Avocado-Toast-Close.jpg);">
+                <div class="content">
+                    <div class="name">Avocado Toast</div>
+                    <div class="des">Rodajas de pan rústico untadas con palta, cubiertas con queso desmenuzado y huevo revuelto.</div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://asset-prod.france.fr/Bild_header_petit_dej_a3892153f1.jpg);">
+                <div class="content">
+                    <div class="name">Desayunos, meriendas y brunch en Frenchí</div>
+                    <div class="des">Sumate a nuestros combos!</div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://files.meilleurduchef.com/mdc/photo/recette/galette-sarrasin-farcie-oeuf-cheval/galette-sarrasin-farcie-oeuf-cheval-1200.jpg);">
+                <div class="content">
+                    <div class="name">Galette de Sarrasin</div>
+                    <div class="des">Crepe de trigo sarraceno rellena de jamón, queso y huevo.</div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://e7852c3a.rocketcdn.me/wp-content/uploads/2022/07/ratatouille-vegetarian-meal-on-a-rustic-wooden-ta-2022-05-27-20-09-01-utc-1400x875.jpg);">
+                <div class="content">
+                    <div class="name">Ratatouille</div>
+                    <div class="des">Estofado de verduras mediterráneas; berenjenas, calabacínes y pimientos, aromatizado con hierbas.</div>
+                    <button>Ir a la tienda</button>
+                </div>
+            </div>
+    
         </div>
+    
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    
+    </div>
+    <script src="carrusel menu/script.js"></script>
         <script>     document.addEventListener('DOMContentLoaded', function() {         const logoContainer = document.querySelector('.logo-contenedor');         logoContainer.addEventListener('animationend', function() { logoContainer.classList.add('fade-out-complete');  }); }); </script>
     </main>
     <footer>
