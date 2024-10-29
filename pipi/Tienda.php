@@ -143,7 +143,7 @@ session_start();
                                 <i class="fa-regular fa-star"></i>
                             </div>
                             <h3><?php echo $fila["nombre"]?></h3>
-                            <span class="add-cart">
+                            <span class="add-cart" name=carrito>
                                 <i class="fa-solid fa-basket-shopping"></i>
                             </span>
                             <p class="price">$<?php echo $fila["precio"]?></p>
@@ -209,9 +209,9 @@ session_start();
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <h3><?php echo $fila["nombre"]?></h3>
+                            <h3 name="nombre"><?php echo $fila["nombre"]?></h3>
                             <span class="add-cart">
-                                <i class="fa-solid fa-basket-shopping"></i>
+                                <i class="fa-solid fa-basket-shopping" name="carrito"></i>
                             </span>
                             <p class="price">$<?php echo $fila["precio"]?></p>
     
