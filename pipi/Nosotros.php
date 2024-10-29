@@ -60,42 +60,42 @@ session_start();
                 <div class="content">
                     <div class="name">Crepes Dulces</div>
                     <div class="des">Finas crepes rellenas de futas, chocolate o crema y dulce de leche.</div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
             <div class="item" style="background-image: url(https://dwellbymichelle.com/wp-content/uploads/2021/08/DWELL_-_Starbucks_Caramel_Latte_Recipe.jpg);">
                 <div class="content">
                     <div class="name">Frappé de Café</div>
                     <div class="des"></div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
             <div class="item" style="background-image: url(https://www.budgetbytes.com/wp-content/uploads/2024/04/Avocado-Toast-Close.jpg);">
                 <div class="content">
                     <div class="name">Avocado Toast</div>
                     <div class="des">Rodajas de pan rústico untadas con palta, cubiertas con queso desmenuzado y huevo revuelto.</div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
             <div class="item" style="background-image: url(https://asset-prod.france.fr/Bild_header_petit_dej_a3892153f1.jpg);">
                 <div class="content">
                     <div class="name">Desayunos, meriendas y brunch en Frenchí</div>
                     <div class="des">Sumate a nuestros combos!</div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
             <div class="item" style="background-image: url(https://files.meilleurduchef.com/mdc/photo/recette/galette-sarrasin-farcie-oeuf-cheval/galette-sarrasin-farcie-oeuf-cheval-1200.jpg);">
                 <div class="content">
                     <div class="name">Galette de Sarrasin</div>
                     <div class="des">Crepe de trigo sarraceno rellena de jamón, queso y huevo.</div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
             <div class="item" style="background-image: url(https://e7852c3a.rocketcdn.me/wp-content/uploads/2022/07/ratatouille-vegetarian-meal-on-a-rustic-wooden-ta-2022-05-27-20-09-01-utc-1400x875.jpg);">
                 <div class="content">
                     <div class="name">Ratatouille</div>
                     <div class="des">Estofado de verduras mediterráneas; berenjenas, calabacínes y pimientos, aromatizado con hierbas.</div>
-                    <button>Ir a la tienda</button>
+                    <a href="Tienda.php"><button>Ir a la tienda</button></a>
                 </div>
             </div>
     
@@ -107,7 +107,7 @@ session_start();
         </div>
     
     </div>
-    <script src="carrusel menu/script.js"></script>
+    <script src="script.js"></script>
         <script>     document.addEventListener('DOMContentLoaded', function() {         const logoContainer = document.querySelector('.logo-contenedor');         logoContainer.addEventListener('animationend', function() { logoContainer.classList.add('fade-out-complete');  }); }); </script>
     </main>
     <footer>
@@ -122,6 +122,8 @@ session_start();
 
 
 </html>
+
+
 
 
 
