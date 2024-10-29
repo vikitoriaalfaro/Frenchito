@@ -15,6 +15,7 @@ width:100%;
 position:fixed;
 align-items: center;
 padding-right: 20%;
+z-index: 1;
 
 }
 .logo{
@@ -66,11 +67,11 @@ li{
     }
 .title{
         padding-top: 5%;  
-        color: rgb(44, 89, 102);
-        font-size: 40px;
+        font-size: 50px;
         font-family: "Oooh Baby", cursive;
-        font-weight: 600;
-        font-style: normal;
+        color: rgb(44, 89, 102);
+        font-weight:600;
+     
         font-display: swap; 
     }
 
@@ -311,7 +312,7 @@ footer{
     border: none;
     cursor: pointer;
     margin: 0 5px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     transition: 0.3s;
 }
 
