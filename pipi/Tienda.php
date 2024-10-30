@@ -1,38 +1,27 @@
-
 <?php 
-session_start();
-
+	session_start();
     $servername = "127.0.0.1";
     $database = "Frenchi";
     $username = "alumno";
     $password = "alumnoipm";
-    
-    $conexion = mysqli_connect($servername, $username, $password, $database); // se crea la conexion
- 
- 
-    if (!$conexion) {
-        die("Conexion fallida: " . mysqli_connect_error());
-    }
- 
-    if (!$conexion) {
+	$conexion = mysqli_connect($servername, $username, $password, $database); // se crea la conexion
+	if (!$conexion) {
         die("Conexion fallida: " . mysqli_connect_error());
     }
     else{
         //insertamos el resultado del formulario
-        $query = "select nombre,precio,imagen, calificacion from Productos where calificacion=5 limit 6";
+        $query = "select codigo,nombre,precio,imagen, calificacion from Productos where calificacion=5 limit 6";
         $resultado1 = mysqli_query($conexion, $query);
-        $query2="select nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Bebida'";
+        $query2="select codigo, nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Bebida'";
         $resultado2=mysqli_query($conexion, $query2);
-        $query3="select nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Comida' and tipo_ds='Dulce'";
+        $query3="select codigo,nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Comida' and tipo_ds='Dulce'";
         $resultado3=mysqli_query($conexion, $query3);    
-        $query4="select nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Comida' and tipo_ds='Salado'";
+        $query4="select codigo,nombre, descripcion, precio, imagen, calificacion from Productos where tipo_comida='Comida' and tipo_ds='Salado'";
         $resultado4=mysqli_query($conexion, $query4);    
-    
+		$query5="select codigo,nombre, descripcion, precio, imagen from Productos where tipo_comida='Combo'";
+        $resultado5=mysqli_query($conexion, $query5);    
     }
-                /**/
-    
-    
-    
+         
 	if (isset($_POST["carrito"])) {
 		if (isset($_SESSION["shopping_cart"])) {
 			$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
@@ -67,25 +56,26 @@ if (isset($_GET["action"])) {
 			if ($values["item_id"] == $_GET["id"]) {
 				unset($_SESSION["shopping_cart"][$keys]);
 				echo '<script>alert("Producto retirado")</script>';
-				echo '<script>window.location="index.php"</script>';
+				echo '<script>window.location="Tienda.php"</script>';
 			}
 		}
 	}
 }
-            /* */
-    
-        ?>
-<!doctype html>
+
+?>
+<!DOCTYPE html>
 <html>
+
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="utf-8" />
     <title>Tienda</title>
     <link
     href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap" rel="stylesheet">
+	<link href="Tienda_style.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Tienda_style.css" />
     <link rel="icon" type="image/png" href="https://png.pngtree.com/png-vector/20220723/ourmid/pngtree-fresh-croissant-icon-cartoon-style-with-shadow-free-vector-and-png-png-image_6034269.png">
 </head>
 
@@ -103,7 +93,7 @@ if (isset($_GET["action"])) {
                 <li>
               <?php
               if(isset($_SESSION["usuario"])){
-                    echo "<a class='login'>".$_SESSION['usuario']."</a>";
+                    echo "<a class='login' href='logout.php'>".$_SESSION['usuario']."</a>";
                 }
                 else{
                     echo "<a class='login' href='Registro.html'>Crear cuenta</a>";
@@ -116,86 +106,85 @@ if (isset($_GET["action"])) {
     <div class="banner-area"></div>
     
     
-    <main>
-        <section class="container top-categories">
-            <h2>Lo mejor de Frenchí cada vez más cerca tuyo...</h2>
-            <div class="container-categories">
-                
-            <div class="card-category category-desayuno">
-                    <p><a href="Desayunos.html">Desayunos y Meriendas</a></p>
-                    
-                </div>
-                <div class="card-category category-brunch">777
-                    <p><a href="Brunch.html">Brunch</a></p>
-                </div>
-                <div class="card-category category-almuerzo">
-                    <p><a href="Desayunos.html">Desayunos y Meriendas</a></p>
-                    
-                </div>
-                <div class="card-category category-desayunotexto">
-                    <p><a href="Desayunos.html">Desayunos y Meriendas</a></p>
-                    
-                </div>
-                
-                <div class="card-category category-brunchtexto">
-                    <p><a href="Brunch.html">Brunch</a></p>
-                </div>
-
-                
-                <div class="card-category category-almuerzotexto">
-                    <p><a href="Desayunos.html">Desayunos y Meriendas</a></p>
-                    
-                </div>
-                
-            
-
-                </div>
-            </div>
-        </section>
+</head>
+<main>
+        
+<section class="container top-products">
+           
+		   <h1 class="heading-1">Lo mejor de Frenchi cada vez más cerca tuyo</h1>
+   
+		   <div class="container">
+	   
+		   <?php
+		   if (mysqli_num_rows($resultado5) > 0) {
+			   while ($row = mysqli_fetch_assoc($resultado5)){ 
+			   ?>
+				   <div class="col-md-4">
+					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
+						   <div class="productos">
+							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
+   
+							   <h3><?php echo $row["nombre"]?></h3>
+							   <h4 class="desc"> <?php echo $row["descripcion"]; ?></h4>
+							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							   
+							   <input type="text" name="cantidad" value="1" class="form-control" />
+   
+							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="hidden" name="precio" value="<?php echo $row["precio"]; ?>" />
+   
+							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+   
+						   </div>
+					   </form>
+				   </div>
+		   <?php
+			   }
+		   }
+		   ?>
+	 </div>
+	   </section>
 
         <section class="container top-products">
-            <h1 class="heading-1">Nuestros favoritos</h1>
+           
+		<h1 class="heading-1">Nuestros favoritos</h1>
 
+		<div class="container">
+	
+		<?php
+		if (mysqli_num_rows($resultado1) > 0) {
+			while ($row = mysqli_fetch_assoc($resultado1)){ 
+			?>
+				<div class="col-md-4">
+					<form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
+						<div class="productos">
+							<img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
 
-            <div class="container-products">
-                <!-- Producto 1 -->
-                <?php
-                    while ($fila = mysqli_fetch_assoc($resultado1)){ ?>
-                        <div class="card-product">
-                        <div class="container-img">
-                            <img src="<?php echo $fila['imagen']?>" alt="Cafe Irish" />
-                           
-                        
-                            <div class="button-group">
-                              
-                                <span>
-                                    <i class="fa-solid fa-heart"></i>
-                                </span>
-                                
-                            </div>
-                        </div>
-                        <div class="content-card-product">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <h3><?php echo $fila["nombre"]?></h3>
-                            <span class="add-cart" name=carrito>
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </span>
-                            <p class="price">$<?php echo $fila["precio"]?></p>
-    
-                        </div>
-                    </div>
-                    <?php } ?>
-            </div>
-        </section>
+							<h3><?php echo $row["nombre"]?></h3>
+						
+							<h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							
+							<input type="text" name="cantidad" value="1" class="form-control" />
 
+							<input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
 
-        <section class="gallery">
+							<input type="hidden" name="precio" value="<?php echo $row["precio"]; ?>" />
+
+							<input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+
+						</div>
+					</form>
+				</div>
+		<?php
+			}
+		}
+		?>
+  </div>
+	</section>
+	
+
+			<section class="gallery">
             <img
                 src="https://i.pinimg.com/736x/de/4e/ba/de4eba837959e139d0273e450cdbb8bb.jpg"
                 alt="Gallery Img1"
@@ -223,125 +212,120 @@ if (isset($_GET["action"])) {
             />
         </section>
 
-        <section class="container specials">
-            <h1 class="heading-1">Bebidas</h1>
-                    
-            <div class="container-products">
-            <?php
-                    while ($fila = mysqli_fetch_assoc($resultado2)){ ?>
-                        <div class="card-product">
-                        <div class="container-img">
-                            <img src="<?php echo $fila['imagen']?>" alt="Cafe Irish" />
-                            
-                            <div class="button-group">
-                              
-                                <span>
-                                    <i class="fa-solid fa-heart"></i>
-                                </span>
-                           
-                            </div>
-                        </div>
-                        <div class="content-card-product">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <h3 name="nombre"><?php echo $fila["nombre"]?></h3>
-                            <span class="add-cart">
-                                <i class="fa-solid fa-basket-shopping" name="carrito"></i>
-                            </span>
-                            <p class="price">$<?php echo $fila["precio"]?></p>
-    
-                        </div>
-                    </div>
-                    <?php } ?>
-            </div>
-        </section>
-        <section class="container specials">
-            <h1 class="heading-1">Patisserie</h1>
-                    
-            <div class="container-products">
-            <?php
-                    while ($fila = mysqli_fetch_assoc($resultado3)){ ?>
-                        <div class="card-product">
-                        <div class="col-md-4">
-					<div style="border:1px solid #333; background-color:white; border-radius:5px; padding:16px;" align-items="center">
-						<img src="<?php echo $fila["imagen"]; ?>" class="img-responsive" />
-						<h3><?php echo $fila["nombre"]?></h3>
-						<div class="stars">
-                              <i class="fa-solid fa-star"></i>
-                             <i class="fa-solid fa-star"></i>
-                             <i class="fa-solid fa-star"></i>
-                              <i class="fa-solid fa-star"></i>
-                              <i class="fa-regular fa-star"></i>
-                        </div>
-						<p class="descripcion"><?php echo $fila["descripcion"]?></p>
-						<h4 class="text-danger">$ <?php echo $fila["precio"]; ?></h4>
-						<form method="post" action="Tienda.php?action=add&id=<?php echo $fila["codigo"]; ?>">
-							
-							<input type="text" name="cantidad" value="1" class="form-control"/>
-							<input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+		<section class="container top-products">
+           
+		   <h1 class="heading-1">Bebidas</h1>
+   
+	   <div class="container">
+	   
+		   <?php
+		   if (mysqli_num_rows($resultado2) > 0) {
+			   while ($row = mysqli_fetch_assoc($resultado2)){ 
+			   ?>
+				   <div class="col-md-4">
+					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
+						   <div class="productos">
+							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
+   
+							   <h3><?php echo $row["nombre"]?></h3>
+							  
+							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							   
+							   <input type="text" name="cantidad" value="1" class="form-control" />
+   
+							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+   
+						   </div>
+					   </form>
+				   </div>
+		   <?php
+			   }
+		   }
+		   ?>
+	 </div>
+		</section>
 
-					
-						</form>
-					</div>
-				</div>
-                    </div>
-                    <?php } ?>
-            </div>
-        </section>
-        <section class="container specials">
-            <h1 class="heading-1">Comidas</h1>
-                    
-            <div class="container-products">
-            <?php
-                    while ($fila = mysqli_fetch_assoc($resultado4)){ ?>
-                        <div class="card-product">
-                        <div class="container-img">
-                            <img style=100px src="<?php echo $fila['imagen']?>" alt="Cafe Irish" />
-                            
-                            <div class="button-group">
-                              
-                                <span>
-                                    <i class="fa-solid fa-heart"></i>
-                                </span>
-                           
-                            </div>
-                        </div>
-                        <div class="content-card-product">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <h3><?php echo $fila["nombre"]?></h3>
-                            <p class="descripcion"><?php echo $fila["descripcion"]?></p>
-                            <span class="add-cart">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </span>
-                            <p class="price">$<?php echo $fila["precio"]?></p>
-    
-                        </div>
-                    </div>
-                    <?php } ?>
-            </div>
-        </section>
-        <div style="clear:both"></div>
-		<br />
-		<h3 style="color:white">Información de la Orden</h3>
+		<section class="container top-products">
+           
+		   <h1 class="heading-1">Patisserie</h1>
+   
+	   <div class="container">
+	   
+		   <?php
+		   if (mysqli_num_rows($resultado3) > 0) {
+			   while ($row = mysqli_fetch_assoc($resultado3)){ 
+			   ?>
+				   <div class="col-md-4">
+					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
+						   <div class="productos">
+							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
+   
+							   <h3><?php echo $row["nombre"]?></h3>
+							   <h4 class="desc"> <?php echo $row["descripcion"]; ?></h4>
+							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							   
+							   <input type="text" name="cantidad" value="1" class="form-control" />
+   
+							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+   
+						   </div>
+					   </form>
+				   </div>
+		   <?php
+			   }
+		   }
+		   ?>
+	 </div>
+		</section>
+
+		<section class="container top-products">
+           
+		   <h1 class="heading-1">Comidas</h1>
+   
+	   <div class="container">
+	   
+		   <?php
+		   if (mysqli_num_rows($resultado4) > 0) {
+			   while ($row = mysqli_fetch_assoc($resultado4)){ 
+			   ?>
+				   <div class="col-md-4">
+					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
+						   <div class="productos">
+							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
+   
+							   <h3 class="nombre"><?php echo $row["nombre"]?></h3>
+							   <h4 class="desc"> <?php echo $row["descripcion"]; ?></h4>
+							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							   <input type="text" name="cantidad" value="1" class="form-control" />
+   
+							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
+   
+						   </div>
+					   </form>
+				   </div>
+		   <?php
+			   }
+		   }
+		   ?>
+	 </div>
+		</section>
+
+		<div class="carro"style="clear:both"></div>
+		<h3 >Información de la Orden</h3>
 		<div class="table-responsive">
 			<table class="table table-bordered">
 				<tr>
-					<th width="40%" style="color:white">Nombre del Producto</th>
-					<th width="10%" style="color:white">Cantidad</th>
-					<th width="20%" style="color:white">Precio</th>
-					<th width="15%" style="color:white">Total</th>
-					<th width="5%" style="color:white">Acción</th>
+					<th width="40%" style="color:black;background-color: #4b989680;">Nombre del Producto</th>
+					<th width="10%" style="color:black;background-color: #4b989680;">Cantidad</th>
+					<th width="20%" style="color:black;background-color: #4b989680;">Precio</th>
+					<th width="15%" style="color:black;background-color: #4b989680;">Total</th>
+					<th width="5%" style="color:black;background-color: #4b989680;">Acción</th>
 				</tr>
 				<?php
 				if (!empty($_SESSION["shopping_cart"])) {
@@ -349,31 +333,42 @@ if (isset($_GET["action"])) {
 					foreach ($_SESSION["shopping_cart"] as $keys => $values) {
 				?>
 						<tr>
-							<td style="color:white"><?php echo $values["item_name"]; ?></td>
-							<td style="color:white"><?php echo $values["item_quantity"]; ?></td>
-							<td style="color:white">$ <?php echo $values["item_price"]; ?></td>
-							<td style="color:white">$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
-							<td style="color:white"><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Quitar Producto</span></a></td>
+							<td style="color:black;background-color: #5ebfbc80;"><?php echo $values["item_name"]; ?></td>
+							<td style="color:black;background-color: #5ebfbc80;"><?php echo $values["item_quantity"]; ?></td>
+							<td style="color:black;background-color: #5ebfbc80;">$ <?php echo $values["item_price"]; ?></td>
+							<td style="color:black;background-color: #5ebfbc80;">$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
+							<td style="color:black;background-color: #5ebfbc80;"><a href="Tienda.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Quitar Producto</span></a></td>
 						</tr>
 					<?php
 						$total = $total + ($values["item_quantity"] * $values["item_price"]);
 					}
 					?>
 					<tr>
-						<td colspan="3" align="right" style="color:white;">Total</td>
-						<td align="right" style="color:white;">$ <?php echo number_format($total, 2); ?></td>
+						<td colspan="3" align="right" style="color:black;">Total</td>
+						<td align="right" style="color:black;">$ <?php echo number_format($total, 2); ?></td>
 						<td></td>
 					</tr>
 				<?php
 				}
 				?>
-    </main>
-    <footer>
-        <li><b href="#">Instagram</b></li>
-        <li><b href="#">Facebook</b></li>
-        <li><b href="#">Maps</b></li>
-    <p>©Copyright 2024 de Cafeterías Frenchí. Todos los derechos reservados.</p>
-    </footer>
+
+			</table>
+		</div>
+	</div>
+	</div>
 </body>
 </html>
 
+<?php
+//Si ha utilizado una versión anterior de PHP, descomente esta función para eliminar el error.
+
+/*function array_column($array, $column_name)
+{
+	$output = array();
+	foreach($array as $keys => $values)
+	{
+		$output[] = $values[$column_name];
+	}
+	return $output;
+}*/
+?>
