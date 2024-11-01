@@ -1,48 +1,49 @@
 body{
-    margin: 0;
-    text-align: center;
-    
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  
 }
-
+nav, ul{
+	height: 80px;
+}
 header{
-margin-right:0px;
-height:80px;
-width:100%;
-position: fixed;
-display:flex;
-justify-content:space-between;
-background-color: rgb(247, 239, 231);
-width:100%;
-position:fixed;
-align-items: center;
-z-index: 1;
-
+    height:80px;
+    position: fixed;
+    display:flex;
+    justify-content:space-between;
+    background-color: rgb(247, 239, 231);
+    width:100%;
+    position:fixed;
+    align-items: last baseline;
+	z-index: 1;
 }
+
 .logo{
-	padding-left: 5%;
-	width:10%;
-	float:left;
+    padding-left: 5%;
+    width:10%;
+    float:left;
+}
+li{
+  list-style: none;
+  display: inline-block;
+  padding-right: 60px;
+  line-height:100px
   }
-  li{
-	list-style: none;
-	display: inline-block;
-	padding-right: 60px;
-	line-height:100px
-	}
- a{
-        text-decoration: none;
-        color: black;
-         font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 110%;
-        }
-		.login{
-			color: rgb(65, 116, 121);
-			padding-left: 10px;
-			font-weight: 700;
-			}
+a{
+      text-decoration: none;
+      color: black;
+       font-family: "Josefin Sans", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 130%;
+      }
+.login{
+      color: rgb(65, 116, 121);
+      padding-left: 10px;
+      font-weight: 700;
+      }
        b {
             color: rgb(0, 0, 0);
              font-family: "Josefin Sans", sans-serif;
@@ -52,7 +53,14 @@ z-index: 1;
                 font-size: 110%;
             align-items:baseline;
             }
-              
+			
+			
+
+
+
+
+
+			
     .banner-area{
         position:static;
         display:flex;
@@ -291,6 +299,43 @@ td{
 	background-color: #4b989680;
 
 }
+
+/* From Uiverse.io by vinodjangid07 */ 
+.button {
+	width: 180px;
+	height: 40px;
+	background-image: linear-gradient(rgb(111, 145, 155), rgb(79, 141, 141));
+	border: none;
+	border-radius: 50px;
+	color: rgb(0, 0, 0);
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	cursor: pointer;
+	box-shadow: 1px 3px 0px rgb(55, 112, 114);
+	transition-duration: .3s;
+	margin-left: auto;
+	margin-bottom: 1%;
+  }
+  
+  .cartIcon {
+	width: 14px;
+	height: fit-content;
+  }
+  
+  .cartIcon path {
+	fill: rgb(0, 0, 0);
+  }
+  
+  .button:active {
+	transform: translate(2px ,0px);
+	box-shadow: 0px 1px 0px rgb(102, 163, 172);
+	padding-bottom: 1px;
+  }
+  
+
 footer{
     width:100%;
     
