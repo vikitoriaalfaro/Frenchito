@@ -68,7 +68,6 @@ if (isset($_GET["action"])) {
 
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="utf-8" />
     <title>Tienda</title>
     <link
@@ -80,7 +79,7 @@ if (isset($_GET["action"])) {
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="logo">
             <img src="Imagenes/logo.png" href="Frenchi.html" style="width:135px;height: 80px;">
         </div>
@@ -228,12 +227,14 @@ if (isset($_GET["action"])) {
 							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
    
 							   <h3><?php echo $row["nombre"]?></h3>
-							  
+							   
 							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
 							   
 							   <input type="text" name="cantidad" value="1" class="form-control" />
    
 							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="hidden" name="precio" value="<?php echo $row["precio"]; ?>" />
    
 							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
    
@@ -257,7 +258,7 @@ if (isset($_GET["action"])) {
 		   if (mysqli_num_rows($resultado3) > 0) {
 			   while ($row = mysqli_fetch_assoc($resultado3)){ 
 			   ?>
-				   <div class="col-md-4">
+				 <div class="col-md-4">
 					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
 						   <div class="productos">
 							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
@@ -269,6 +270,8 @@ if (isset($_GET["action"])) {
 							   <input type="text" name="cantidad" value="1" class="form-control" />
    
 							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="hidden" name="precio" value="<?php echo $row["precio"]; ?>" />
    
 							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
    
@@ -292,17 +295,20 @@ if (isset($_GET["action"])) {
 		   if (mysqli_num_rows($resultado4) > 0) {
 			   while ($row = mysqli_fetch_assoc($resultado4)){ 
 			   ?>
-				   <div class="col-md-4">
+				  <div class="col-md-4">
 					   <form method="post" action="Tienda.php?action=add&id=<?php echo $row["codigo"]; ?>">
 						   <div class="productos">
 							   <img src="<?php echo $row["imagen"]; ?>" class="img-responsive" /><br />
    
-							   <h3 class="nombre"><?php echo $row["nombre"]?></h3>
+							   <h3><?php echo $row["nombre"]?></h3>
 							   <h4 class="desc"> <?php echo $row["descripcion"]; ?></h4>
 							   <h4 class="text-danger">$ <?php echo $row["precio"]; ?></h4>
+							   
 							   <input type="text" name="cantidad" value="1" class="form-control" />
    
 							   <input type="hidden" name="nombre" value="<?php echo $row["nombre"]; ?>" />
+   
+							   <input type="hidden" name="precio" value="<?php echo $row["precio"]; ?>" />
    
 							   <input type="submit" name="carrito" style="margin-top:5px;" class="btn btn-warning" value="Agregar Producto" />
    
@@ -353,22 +359,25 @@ if (isset($_GET["action"])) {
 				?>
 
 			</table>
+				<a href="Pago.php">			
+				<button class="button" href="Pago.php">
+				Comprar
+				<svg class="cartIcon" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+				</button>
+			</a>
 		</div>
 	</div>
 	</div>
+	<footer>
+
+<li><a href="#">Instagram</a></li>
+<li><a href="#">Tel:15652783</a></li>
+<li><a href="https://open.spotify.com/playlist/3lywTMc9iYn1J9lsKEJ5fA?si=lOhatp24TA6T60sgn-f8sA&pt=513b45ecc5e58a426401db54352cba7d&pi=2RRkj6mTRoyLJ">Playlist de Spotify</a></li>
+<p>©Copyright 2024 de Cafeterías Frenchí. Todos los derechos reservados.</p>
+</footer>
 </body>
 </html>
 
 <?php
-//Si ha utilizado una versión anterior de PHP, descomente esta función para eliminar el error.
 
-/*function array_column($array, $column_name)
-{
-	$output = array();
-	foreach($array as $keys => $values)
-	{
-		$output[] = $values[$column_name];
-	}
-	return $output;
-}*/
 ?>
