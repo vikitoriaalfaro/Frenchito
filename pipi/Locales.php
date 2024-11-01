@@ -34,7 +34,7 @@ session_start();
               <li>
               <?php
               if(isset($_SESSION["usuario"])){
-                    echo "<a class='login'>".$_SESSION['usuario']."</a>";
+                    echo "<a class='login' href='logout.php'>".$_SESSION['usuario']."</a>";
                 }
                 else{
                     echo "<a class='login' href='Registro.html'>Crear cuenta</a>";
@@ -47,8 +47,8 @@ session_start();
       <main>
     <section class="locales"> 
         <h2 class="titulo">Nuestros Locales</h2>
-        <button class="pre-btn"><img src="arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="arrow.png" alt=""></button>
+        <button class="pre-btn"><img src="Imagenes/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="Imagenes/arrow.png" alt=""></button>
         <div class="product-container">
             <div class="product-card">
                 <div class="product-image">
@@ -101,7 +101,7 @@ session_start();
             <div class="product-card">
                 <div class="product-image">
                    
-                    <img src="Deco.jpg" class="fotis" alt="">
+                    <img src="Imagenes/Deco.jpg" class="fotis" alt="">
                     <button class="card-btn">add to wishlist</button>
                 </div>
                 <div class="product-info">
@@ -127,12 +127,11 @@ session_start();
     </main>
     <footer>
 
-    <li><b href="#">Instagram</b></li>
-    <li><b href="#">Facebook</b></li>
-    <li><b href="#">Maps</b></li>
+    <li><a href="#">Instagram</a></li>
+        <li><a href="#">Tel:15652783</a></li>
+        <li><a href="https://open.spotify.com/playlist/3lywTMc9iYn1J9lsKEJ5fA?si=lOhatp24TA6T60sgn-f8sA&pt=513b45ecc5e58a426401db54352cba7d&pi=2RRkj6mTRoyLJ">Playlist de Spotify</a></li>
     <p>©Copyright 2024 de Cafeterías Frenchí. Todos los derechos reservados.</p>
     </footer>
     <script src="Carrusel.js"></script>
 </body>
 </html>
-
