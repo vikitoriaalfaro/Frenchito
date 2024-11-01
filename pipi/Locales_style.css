@@ -68,7 +68,7 @@ b {
   }
 
   .titulo{
-    padding-top: 5%;  
+   
     color: rgb(44, 89, 102);
     font-size: 50px;
     font-family: "Oooh Baby", cursive;
@@ -240,7 +240,7 @@ b {
 }
 footer{    
   width:100%;
-  padding-top: 15%;
+  padding-top:0%;
   bottom: 0px;
   right:0px;
   left:0px;
