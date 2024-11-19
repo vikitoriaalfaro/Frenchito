@@ -15,15 +15,21 @@
     if (!$conexion) {
         die("Conexion fallida: " . mysqli_connect_error());
     }
-    else{
+    else{ 
+        if($correo=="" or $contraseña=="" OR $nombre=="" OR $direccion==""){
+        header("Location:/Registro.html");
+        }
+        else{
         //insertamos el resultado del formulario
         $query = "insert into Usuario values ('$correo', '$contraseña', '$nombre', '$direccion')";
         $resultado=mysqli_query($conexion, $query);
+        $campos=array();
         session_start();
         $_SESSION["usuario"] = $nombre; 
         header("Location:/Nosotros.php");
 
-
+        }
+    }
         /*
         $query = "select password from Usuario where mail = '$mail'";
         //esto es la consulta que realizo para saber si la contraseña coincide con el mail y la guardo en la variable query
@@ -46,6 +52,6 @@
                 echo "Constraseña incorrecta";
             }
         }*/
-    }
+    
     mysqli_close($conexion);
 ?>
