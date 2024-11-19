@@ -1,7 +1,7 @@
 <?php
     $correo = $_POST["mail"];
     $contraseña = $_POST["password"];
-
+   
    
     $servername = "127.0.0.1";
     $database = "Frenchi";
@@ -15,6 +15,10 @@
         die("Conexion fallida: " . mysqli_connect_error());
     }
     else{
+        if($correo=="" or $contraseña==""){
+        header("Location:/Login.html");
+        }
+        else{
       
         $query = "select password, nombre from Usuario where mailusuario = '$correo'";
         //esto es la consulta que realizo para saber si la contraseña coincide con el mail y la guardo en la variable query
@@ -36,6 +40,6 @@
                 header("Location: Login.html");
             }
         }
-    }
+    }}
     mysqli_close($conexion);
 ?>
