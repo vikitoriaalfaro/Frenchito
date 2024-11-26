@@ -28,7 +28,7 @@
             header("Location: Login.html");
         }
         else {
-            $fila=mysqli_fetch_assoc($resultado);
+            $fila=mysqli_fetch_assoc($resultado);//una fila de resultados como una matriz asociativa
             if($fila["password"] == $contraseña){
                 session_start();
                 $_SESSION["usuario"] = $fila["nombre"]; 
