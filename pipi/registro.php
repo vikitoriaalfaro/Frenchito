@@ -22,36 +22,13 @@
         else{
         //insertamos el resultado del formulario
         $query = "insert into Usuario values ('$correo', '$contraseña', '$nombre', '$direccion')";
-        $resultado=mysqli_query($conexion, $query);
-        $campos=array();
-        session_start();
-        $_SESSION["usuario"] = $nombre; 
+        $resultado=mysqli_query($conexion, $query);// esto ejecuta la query (variable con la sentencia sql) dentro de la base
+        session_start(); //inicia la sesion en base a los datos que le dimos antes usuario, correo, contraseña y dir
+        $_SESSION["usuario"] = $nombre; //variable que maneja info del inicio de sesion, que se va a mantener, ver o modificar en proximas paginas.
         header("Location:/Nosotros.php");
 
         }
     }
-        /*
-        $query = "select password from Usuario where mail = '$mail'";
-        //esto es la consulta que realizo para saber si la contraseña coincide con el mail y la guardo en la variable query
-        $resultado=mysqli_query($conexion, $query);
-        //la variable resultado va a guardar el resultado del comando donde se realiza la consulta
-        if(mysqli_num_rows($resultado)  == 0){
-            echo "Error";
-            echo $correo;
-        }
-        else {
-            $fila=mysqli_fetch_assoc($resultado);
-            if($fila["password"] == $contraseña){
-                session_start();
-                $_SESSION["mail"] = $correo;
-                $_SESSION["mail"] = $contraseña;
-               
-                echo "<a href='iniciosesion.php'> volver a inicio </a>";
-            }
-            else{
-                echo "Constraseña incorrecta";
-            }
-        }*/
-    
     mysqli_close($conexion);
 ?>
+
